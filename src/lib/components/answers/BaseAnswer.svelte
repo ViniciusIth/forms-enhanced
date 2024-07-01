@@ -22,7 +22,7 @@
 
 <style>
 	* {
-		border: 1px dotted red;
+		/* border: 1px dotted red; */
 	}
 
 	div.base {

@@ -8,5 +8,5 @@
 </script>
 
 <BaseAnswer {questionData}>
-	<TextArea maxRows={20} minRows={3} bind:value={userAnswer}></TextArea>
+	<TextArea maxRows={10} minRows={3} bind:value={userAnswer}></TextArea>
 </BaseAnswer>
