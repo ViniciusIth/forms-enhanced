@@ -1,19 +1,20 @@
 export class Question {
-    public id: number
-    public title: string
-    public description?: string
-    public required: boolean
-    public order: number
+    public id: string
+    public title: string = $state('')
+    public description: string = $state('')
+    public required: boolean = $state(false)
+    public order: number = $state(0)
+    public type: string = $state('')
 
     // public snippet: Snippet
 
     constructor(questionData: QuestionData) {
         this.id = questionData.id
-        this.title = questionData.title
+        this.title = questionData.title || "title"
         this.description = questionData.description
         this.required = questionData.required
         this.order = questionData.order
-        // this.snippet = questionData.snippet
+        this.type = questionData.type
     }
 
     public hasDescription() {
@@ -23,17 +24,13 @@ export class Question {
     public isRequired() {
         return this.required
     }
-
-    public static getQuestionTypes() {
-        return ["text", "number", "checkbox", "radio", "select", "textarea"]
-    }
 }
 
 export interface QuestionData {
-    id: number
+    id: string
     title: string
     description: string
     required: boolean
     order: number
-// snippet: Snippet
+    type: string
 }

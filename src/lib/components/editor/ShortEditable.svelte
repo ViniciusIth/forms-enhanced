@@ -1,12 +1,10 @@
 <script lang="ts">
 	import type { Question } from '$lib/models/question.svelte';
-	import BaseAnswer from './BaseAnswer.svelte';
+	import BaseEditable from './BaseEditable.svelte';
 
 	let { questionData }: { questionData: Question } = $props();
 </script>
 
-
-<BaseAnswer { questionData }>
-    <input type="text" style="">
-</BaseAnswer>
-
+<BaseEditable {questionData}>
+	<input type="text" />
+</BaseEditable>

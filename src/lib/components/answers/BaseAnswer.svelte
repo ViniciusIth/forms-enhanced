@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { Question } from '$lib/models/question';
+	import type { Question } from "$lib/models/question.svelte";
+
 
 	let { questionData, children }: { questionData: Question; children: any } = $props();
 </script>
