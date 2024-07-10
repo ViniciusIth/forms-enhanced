@@ -6,5 +6,5 @@
 </script>
 
 <BaseEditable {questionData}>
-	<input type="text" />
+	<input type="text" disabled />
 </BaseEditable>

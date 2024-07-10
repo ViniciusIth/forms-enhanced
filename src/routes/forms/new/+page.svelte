@@ -6,7 +6,7 @@
 	import ShortEditable from '$lib/components/editor/ShortEditable.svelte';
 	import TimeEditable from '$lib/components/editor/TimeEditable.svelte';
 	import { DateQuestion } from '$lib/models/questions/dateQuestion';
-	import { MultipleChoiceQuestion } from '$lib/models/questions/multipleChoiceQuestion';
+	import { MultipleChoiceQuestion } from '$lib/models/questions/multipleChoiceQuestion.svelte';
 	import { ParagraphAnswerQuestion } from '$lib/models/questions/paragraphAnswerQuestion';
 	import { SelectionBoxQuestion } from '$lib/models/questions/selectionBoxQuestion';
 	import { ShortAnswerQuestion } from '$lib/models/questions/shortAnswerQuestion';
@@ -39,37 +39,38 @@
 
 		switch (newQuestionType) {
 			case ShortAnswerQuestion.getQuestionType():
-				newQuestion = ShortAnswerQuestion.generateDefault();
+				newQuestion = new ShortAnswerQuestion();
 				break;
 			case ParagraphAnswerQuestion.getQuestionType():
-				newQuestion = ParagraphAnswerQuestion.generateDefault();
+				newQuestion = new ParagraphAnswerQuestion();
 				break;
 			case MultipleChoiceQuestion.getQuestionType():
-				newQuestion = MultipleChoiceQuestion.generateDefault();
+				newQuestion = new MultipleChoiceQuestion();
 				break;
 			case SelectionBoxQuestion.getQuestionType():
-				newQuestion = SelectionBoxQuestion.generateDefault();
+				newQuestion = new SelectionBoxQuestion();
 				break;
 			case DateQuestion.getQuestionType():
-				newQuestion = DateQuestion.generateDefault();
+				newQuestion = new DateQuestion();
 				break;
 			case TimeQuestion.getQuestionType():
-				newQuestion = TimeQuestion.generateDefault();
+				newQuestion = new TimeQuestion();
 				break;
 			default:
 				console.error('unknown question type: ' + newQuestionType);
 				return;
 		}
 
-		newQuestion.order = position;
 		questions.push(newQuestion);
 	}
 
-	$effect(() => {
-		questions.sort((a, b) => a.order - b.order);
-	});
+	function showData() {
+		for (const question of questions) {
+			console.log($state.snapshot(question));
+		}
+	}
 
-	$inspect(questions);
+	// $inspect(questions);
 </script>
 
 <div>
@@ -97,8 +98,11 @@
 	>
 </div>
 
+<button onclick={showData}>Show Data</button>
+
 {#each questions as questionData}
 	<svelte:component this={getComponent(questionData.type)} {questionData} />
 
 	{questionData.order}
 {/each}
+

@@ -7,6 +7,6 @@
 </script>
 
 <BaseEditable {questionData}>
-	<input type="time" style="" bind:value={userSelected} />
+	<input type="time" style="" bind:value={userSelected} disabled />
 	{userSelected}
 </BaseEditable>

@@ -1,20 +1,19 @@
+import makeid from "$lib/helpers/makeid"
+
 export class Question {
     public id: string
     public title: string = $state('')
     public description: string = $state('')
     public required: boolean = $state(false)
-    public order: number = $state(0)
     public type: string = $state('')
 
     // public snippet: Snippet
 
-    constructor(questionData: QuestionData) {
-        this.id = questionData.id
-        this.title = questionData.title || "title"
-        this.description = questionData.description
-        this.required = questionData.required
-        this.order = questionData.order
-        this.type = questionData.type
+    constructor(title?: string, description?: string, required?: boolean) {
+        this.id = this.type + makeid(5)
+        this.title = title || ""
+        this.description = description || ""
+        this.required = required || false
     }
 
     public hasDescription() {

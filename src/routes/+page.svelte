@@ -7,10 +7,10 @@
 	import TimeAnswer from '$lib/components/answers/TimeAnswer.svelte';
 	import type { Question } from '$lib/models/question.svelte';
 	import { DateQuestion } from '$lib/models/questions/dateQuestion';
-	import { MultipleChoiceQuestion } from '$lib/models/questions/multipleChoiceQuestion';
+	import { MultipleChoiceQuestion } from '$lib/models/questions/multipleChoiceQuestion.svelte';
 	import { ParagraphAnswerQuestion } from '$lib/models/questions/paragraphAnswerQuestion';
 	import { SelectionBoxQuestion } from '$lib/models/questions/selectionBoxQuestion';
-	import { ShortAnswerQuestion } from '$lib/models/questions/shortAnswerQuestion.svelte';
+	import { ShortAnswerQuestion } from '$lib/models/questions/shortAnswerQuestion';
 	import { TimeQuestion } from '$lib/models/questions/timeQuestion';
 
 	const questions: Question[] = $state([]);
@@ -69,75 +69,3 @@
 		<TimeAnswer {questionData} />
 	{/if}
 {/each}
-
-<!-- <ShortAnswer -->
-<!-- 	questionData={new ShortAnswerQuestion({ -->
-<!-- 		title: 'Question Title', -->
-<!-- 		description: 'Question description', -->
-<!-- 		required: true, -->
-<!-- 		order: 0, -->
-<!-- 		id: 3891098 -->
-<!-- 	})} -->
-<!-- ></ShortAnswer> -->
-<!---->
-<!-- <ShortAnswer -->
-<!-- 	questionData={new ShortAnswerQuestion({ -->
-<!-- 		title: 'Question Title', -->
-<!-- 		description: '', -->
-<!-- 		required: true, -->
-<!-- 		order: 0, -->
-<!-- 		id: 3891098 -->
-<!-- 	})} -->
-<!-- ></ShortAnswer> -->
-<!---->
-<!-- <ParagraphAnswer -->
-<!-- 	questionData={new ShortAnswerQuestion({ -->
-<!-- 		title: 'Question Title', -->
-<!-- 		description: '', -->
-<!-- 		required: true, -->
-<!-- 		order: 0, -->
-<!-- 		id: 3891098 -->
-<!-- 	})} -->
-<!-- ></ParagraphAnswer> -->
-<!---->
-<!-- <MultipleChoiceAnswer -->
-<!-- 	questionData={new MultipleChoiceQuestion({ -->
-<!-- 		title: 'Question Title', -->
-<!-- 		description: 'Question description', -->
-<!-- 		required: true, -->
-<!-- 		order: 0, -->
-<!-- 		id: 3891098, -->
-<!-- 		options: ['a', 'b', 'c'] -->
-<!-- 	})} -->
-<!-- ></MultipleChoiceAnswer> -->
-<!---->
-<!-- <SelectionBoxAnswer -->
-<!-- 	questionData={new SelectionBoxQuestion({ -->
-<!-- 		title: 'Question Title', -->
-<!-- 		description: 'Question description', -->
-<!-- 		required: true, -->
-<!-- 		order: 0, -->
-<!-- 		id: 3891098, -->
-<!-- 		options: ['a', 'b', 'c'] -->
-<!-- 	})} -->
-<!-- ></SelectionBoxAnswer> -->
-<!---->
-<!-- <DateAnswer -->
-<!-- 	questionData={new DateQuestion({ -->
-<!-- 		title: 'Question Title', -->
-<!-- 		description: 'Question description', -->
-<!-- 		required: true, -->
-<!-- 		order: 0, -->
-<!-- 		id: 3891098 -->
-<!-- 	})} -->
-<!-- ></DateAnswer> -->
-<!---->
-<!-- <TimeAnswer -->
-<!-- 	questionData={new TimeQuestion({ -->
-<!-- 		title: 'Question Title', -->
-<!-- 		description: 'Question description', -->
-<!-- 		required: true, -->
-<!-- 		order: 0, -->
-<!-- 		id: 3891098 -->
-<!-- 	})} -->
-<!-- ></TimeAnswer> -->

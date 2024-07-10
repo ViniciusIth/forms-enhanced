@@ -6,6 +6,7 @@
 </script>
 
 <BaseEditable {questionData}>
+	<button onclick={() => questionData.addOption('')}>+</button>
 	{#each questionData.options as option}
 		<div>
 			<input type="radio" id={option} value={option} />

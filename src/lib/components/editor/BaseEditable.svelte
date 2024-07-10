@@ -1,14 +1,9 @@
 <script lang="ts">
 	import TextArea from '../inputs/TextArea.svelte';
 	import type { Question } from '$lib/models/question.svelte';
-	import stringfy from '$lib/helpers/stringfy';
 
 	let { questionData, children }: { questionData: Question; children: any } = $props();
-
-	$inspect(questionData);
 </script>
-
-{stringfy(questionData)}
 
 <div class="base">
 	<div class="input_section">
@@ -30,8 +25,6 @@
 			minRows={5}
 			maxRows={20}
 		></TextArea>
-		<!-- {#if questionData.hasDescription()} -->
-		<!-- {/if} -->
 	</div>
 
 	<div class="user_input">

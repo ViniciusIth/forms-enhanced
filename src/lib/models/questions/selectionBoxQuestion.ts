@@ -1,4 +1,3 @@
-import makeid from "$lib/helpers/makeid";
 import { Question, type QuestionData } from "../question.svelte";
 
 interface SelectionBoxQuestionData extends QuestionData {
@@ -8,24 +7,13 @@ interface SelectionBoxQuestionData extends QuestionData {
 export class SelectionBoxQuestion extends Question {
     public options: string[];
 
-    constructor(questionData: SelectionBoxQuestionData) {
-        super({ ...questionData })
-        this.options = questionData.options
+    constructor(options?: string[], title?: string, description?: string, required?: boolean) {
+        super(title, description, required);
+
+        this.type = SelectionBoxQuestion.getQuestionType()
+        this.options = options || []
     }
 
-    public static generateDefault(): SelectionBoxQuestion {
-        const data: SelectionBoxQuestionData = {
-            id: makeid(5),
-            title: "",
-            description: "",
-            required: false,
-            options: [],
-            order: 0,
-            type: SelectionBoxQuestion.getQuestionType()
-        }
-
-        return new SelectionBoxQuestion(data)
-    }
 
     public static getQuestionType(): string {
         return "selection-box-question"

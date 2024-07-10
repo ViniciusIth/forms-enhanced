@@ -1,22 +1,10 @@
-import makeid from "$lib/helpers/makeid";
 import { Question, type QuestionData } from "../question.svelte";
 
 export class ShortAnswerQuestion extends Question {
-    constructor(questionData: QuestionData) {
-        super({ ...questionData })
-    }
+    constructor(title?: string, description?: string, required?: boolean) {
+        super(title, description, required);
 
-    public static generateDefault(): ShortAnswerQuestion {
-        const data: QuestionData = {
-            id: makeid(5),
-            title: "",
-            description: "",
-            required: false,
-            order: 0,
-            type: ShortAnswerQuestion.getQuestionType()
-        }
-
-        return new ShortAnswerQuestion(data)
+        this.type = ShortAnswerQuestion.getQuestionType()
     }
 
     public static getQuestionType(): string {

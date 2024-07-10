@@ -9,7 +9,7 @@
 <BaseEditable {questionData}>
 	{#each questionData.options as option}
 		<div>
-			<input type="checkbox" id={option} value={option} bind:group={userSelected} />
+			<input type="checkbox" id={option} value={option} bind:group={userSelected} disabled />
 			<label for={option}>{option}</label>
 		</div>
 	{/each}
